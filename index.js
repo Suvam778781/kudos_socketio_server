@@ -7,6 +7,9 @@ const { connection, pool } = require("./config/db");
 const { groupMessagesByClientId } = require("./utils/groupMessagesByClientId");
 const app = express();
 const server = http.createServer(app);
+
+
+
 const io = socketio(server, {
   cors: {
     origin: "*",
@@ -17,6 +20,11 @@ const io = socketio(server, {
 });
 app.use(express.json());
 app.use(cors());
+app.get("/",(req,res)=>{
+
+res.status(200).send("Homepage")
+
+})
 // Handle socket.io connections
 io.on("connection", (socket) => {
   console.log("New client connected:", socket.id);
