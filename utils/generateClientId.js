@@ -1,9 +1,5 @@
-const crypto =require("crypto")
+const { v4: uuidv4 } = require('uuid');
 function generateClientId(name, email) {
-    const hash = crypto.createHash('md5');
-    const clientId = hash.update(`${name}_${email}`).digest('hex');
-    return clientId;
+  return uuidv4();
   }
-
-
   module.exports={generateClientId}

@@ -210,7 +210,7 @@ FROM
 });
 
 // Start the server
-const PORT = 8090;
+const PORT = 8080;
 server.listen(PORT, async (err) => {
   if (err) {
     console.log("inside server fuinction");
@@ -230,7 +230,6 @@ app.get("/", (req, res) => {
   res.send("homepage");
 });
 app.post("/chat", (req, res) => {
-  const { name, email } = req.body;
   const clientId = generateClientId(name, email);
   // Save the client ID to the database or perform any other necessary operations
   res.status(200).json({ clientId });
