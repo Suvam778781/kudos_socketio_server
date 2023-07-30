@@ -230,7 +230,8 @@ app.get("/", (req, res) => {
   res.send("homepage");
 });
 app.post("/chat", (req, res) => {
-  const clientId = generateClientId(name, email);
+  const clientId = generateClientId();
+  console.log(clientId)
   // Save the client ID to the database or perform any other necessary operations
   res.status(200).json({ clientId });
 });
