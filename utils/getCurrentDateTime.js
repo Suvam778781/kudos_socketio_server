@@ -19,6 +19,4 @@ function getCurrentDateTime() {
   
     return result;
   }
-  
-
   module.exports={getCurrentDateTime}
