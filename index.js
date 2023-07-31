@@ -18,11 +18,6 @@ const io = socketio(server, {
 });
 app.use(express.json());
 app.use(cors());
-app.get("/",(req,res)=>{
-
-res.status(200).send("Homepage")
-
-})
 const connectedClients = new Map();
 // Handle socket.io connections
 io.on("connection", (socket) => {
