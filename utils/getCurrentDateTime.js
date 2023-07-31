@@ -1,27 +1,23 @@
 function getCurrentDateTime() {
-    const currentDate = new Date();
-  
     const months = [
-      'January', 'February', 'March', 'April', 'May', 'June', 
+      'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
     ];
   
-    const days = [
-      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-    ];
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   
-    const monthName = months[currentDate.getMonth()];
-    const year = currentDate.getFullYear();
-    const dayOfWeek = days[currentDate.getDay()];
-    const dayOfMonth = ('0' + currentDate.getDate()).slice(-2);
-    const hour = ('0' + currentDate.getHours()).slice(-2);
-    const minute = ('0' + currentDate.getMinutes()).slice(-2);
-    const period = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+    const now = new Date();
+    const month = months[now.getMonth()];
+    const dayOfWeek = days[now.getDay()];
+    const hour = now.getHours();
+    const minute = now.getMinutes();
   
-    const formattedDateTime = `${monthName} ${year} ${dayOfWeek} at ${hour}:${minute} ${period}`;
+    const amOrPm = hour >= 12 ? 'PM' : 'AM';
+    const formattedHour = hour % 12 || 12;
   
-    return formattedDateTime;
+    const result = `${month} ${now.getFullYear()} ${dayOfWeek} at ${formattedHour}:${minute.toString().padStart(2, '0')} ${amOrPm}`;
   
+    return result;
   }
   
 
