@@ -78,8 +78,7 @@ server.listen(PORT, async (err) => {
     console.log(err);
   } else {
     try {
-      await connection(); // Connect to the database
-      console.log(process.env.PORT || 8090);
+      console.log(process.env.PORT || 8090,"connected");
     } catch (error) {
       console.log("Error while connecting to the database:", error);
       server.close();
