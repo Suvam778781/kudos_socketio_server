@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
     console.log(connectedClients)
     console.log(admin_id,message, client_id, "admin");
     let time=getCurrentDateTime()
-    
+
     console.log(socketId,"ans")
     if (socketId) {
       io.to(socketId).emit("clientMessage", { admin_id, client_id, timestamp:time, message });
@@ -88,5 +88,5 @@ server.listen(PORT, async (err) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("homepage");
+  res.send("homepage hai ye");
 });
